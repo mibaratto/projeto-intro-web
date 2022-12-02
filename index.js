@@ -9,7 +9,7 @@ lactoseFree - boleano
 vegetariano -boleano
 */
 //RECEITA 1----------------------------------
-const título1 = "Geleia de figo e vinho tinto"
+const titulo1 = "Geleia de figo e vinho tinto"
 const ingredientes1 = ["1 ½ xícara (chá) de figos secos (cerca de 250 g)", "1 xícara (chá) de vinho tinto", "1 xícara (chá) de água","2 colheres (sopa) de açúcar", "1 canela em rama", "1 anis-estrelado"]
 const modoPreparo1 = [
     "1. Numa tábua, corte e descarte os cabinhos dos figos. Fatie cada figo em tiras e as tiras em cubinhos. Transfira para uma panela pequena.",
@@ -21,12 +21,12 @@ const modoPreparo1 = [
 const tempoPreparoMinutos1 = 60
 let glutenFree1 = true
 let lactoseFree1 = true
-let vagetariono1 = true
+let vegetariono1 = true
 
 
 
 ///RECEITA 2----------------------------------
-const título2 = "Mimosa"
+const titulo2 = "Mimosa"
 const ingredientes2 = ["1 parte de caldo de laranja natural coado", "1 parte de espumante"]
 const modoPreparo2 = [
     "1. Antes de preparar o drinque, leve o suco de laranja e o espumante para a geladeira por pelo menos 30 minutos, ou até gelar. Se quiser, gele também uma taça para champanhe.",
@@ -35,13 +35,13 @@ const modoPreparo2 = [
 const tempoPreparoMinutos2 = 15
 let glutenFree2 = true
 let lactoseFree2 = true
-let vagetariono2 = true
+let vegetariono2 = true
 
 
 
 ///RECEITA 3----------------------------------
-const título3 = "Ovos Beneditinos"
-const ingredientes = ["100 g de manteiga", "1 gema", "½ colher (sopa) de vinagre ", "sal e pimenta-do-reino moída na hora a gosto"]
+const titulo3 = "Ovos Beneditinos"
+const ingredientes3 = ["100 g de manteiga", "1 gema", "½ colher (sopa) de vinagre ", "sal e pimenta-do-reino moída na hora a gosto"]
 const modoPreparo3 = [
     "1. Leve ao micro-ondas uma tigela com a manteiga para derreter. Reserve.",
     "2. Numa panelinha, coloque cerca de dois dedos de água, leve ao fogo médio e desligue quando começar a ferver.",
@@ -52,13 +52,30 @@ const modoPreparo3 = [
 const tempoPreparoMinutos3 = 30
 let glutenFree3 = false
 let lactoseFree3 = false
-let vagetariono3 = false
+let vegetariono3 = false
 //-------------------------------------------
 
 
-const mediaTempoMinutos = (tempoPreparoMinutos1 + tempoPreparoMinutos2 + tempoPreparoMinutos3)/3
-console.log(`Media de tempo de preparo em minutos: ${mediaTempoMinutos} minutos`)
+// const mediaTempoMinutos = (tempoPreparoMinutos1 + tempoPreparoMinutos2 + tempoPreparoMinutos3)/3
+// console.log(`Media de tempo de preparo em minutos: ${mediaTempoMinutos} minutos`)
 
-const verificaGlutenFree = glutenFree1 && glutenFree2 && glutenFree3
-console.log(`Todas receitas são sem glutem? ${verificaGlutenFree}`)
+// const verificaGlutenFree = glutenFree1 && glutenFree2 && glutenFree3
+// console.log(`Todas receitas são sem glutem? ${verificaGlutenFree}`)
 
+console.log(`${titulo1.toUpperCase()} | Glutenfree: ${glutenFree1}  |  Lactosefree: ${lactoseFree1}  |   Vegetariano: ${vegetariono1} \n
+Ingredientes: ${ingredientes1}\n
+Modo de preparo: ${modoPreparo1}\n
+Tempo de preparo: ${tempoPreparoMinutos1} minutos\n
+--------------------------------------------------`)
+
+console.log(`\n${titulo2.toUpperCase()} | Glutenfree: ${glutenFree2}  |  Lactosefree: ${lactoseFree2}  |   Vegetariano: ${vegetariono2} \n
+Ingredientes: ${ingredientes2}\n
+Modo de preparo: ${modoPreparo2}\n
+Tempo de preparo: ${tempoPreparoMinutos2} minutos\n
+--------------------------------------------------`)
+
+console.log(`\n${titulo3.toUpperCase()} | Glutenfree: ${glutenFree3}  |  Lactosefree: ${lactoseFree3}  |   Vegetariano: ${vegetariono3} \n
+Ingredientes: ${ingredientes3}\n
+Modo de preparo: ${modoPreparo3}\n
+Tempo de preparo: ${tempoPreparoMinutos3} minutos\n
+--------------------------------------------------`)
