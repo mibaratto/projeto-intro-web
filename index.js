@@ -1,81 +1,195 @@
-/*
-RECEITAS
-titulo/nome - string
-Ingredientes - lista strings
-Modo de preparo - lista strings
-Tempo de preparo - number
-glutemfree - bolleano
-lactoseFree - boleano
-vegetariano -boleano
-*/
-//RECEITA 1----------------------------------
-const titulo1 = "Geleia de figo e vinho tinto"
-const ingredientes1 = ["1 ½ xícara (chá) de figos secos (cerca de 250 g)", "1 xícara (chá) de vinho tinto", "1 xícara (chá) de água","2 colheres (sopa) de açúcar", "1 canela em rama", "1 anis-estrelado"]
-const modoPreparo1 = [
-    "1. Numa tábua, corte e descarte os cabinhos dos figos. Fatie cada figo em tiras e as tiras em cubinhos. Transfira para uma panela pequena.",
-    "2. Adicione à panela a água, o vinho e o açúcar. Junte a canela e o anis estrelado. Misture e leve para cozinhar em fogo médio até ferver.",
-    "3. Assim que ferver, abaixe o fogo e coloque a tampa entreaberta. Deixe cozinhar por cerca de 30 minutos, mexendo de vez em quando - a cada mexida, pressione os figos levemente com as costas da colher.",
-    "4. Desligue o fogo, retire a canela e o anis-estrelado. Com as costas da colher, amasse um pouco mais os figos ainda quentes - a geleia deve ficar com pedacinhos da fruta.",
-    "5. Com uma concha, transfira a geleia ainda quente para potes de vidro esterilizados, deixando cerca de 2 cm até a tampa livre. Feche o pote com a geleia quente para formar vácuo. Essa geleia é ótima para comer com queijos."
-]
-const tempoPreparoMinutos1 = 60
-let glutenFree1 = true
-let lactoseFree1 = true
-let vegetariono1 = true
+//Aplicação Web para consultorio veterinario - 
+// Semana 1 - exercício 1
+// const nomeTutor;
+// const telefoneTutor;
+// const emailTutor;
+// const especie;
+// let idade;
+// let dataNascimento;
+// const raca;
+// const carteiraVacinacao;
+// const medicamentos;
+// const castrado;
+
+// SEMANA 1 - exercício 2
+// const nomeTutor1 = "Maria"
+// let telefoneTutor1 = "9101-3456"
+// const nomePet1 = "Pudim";
+// const especie1 = "cachorro";
+// const anoNascimento1 = 2012;
+// let idade1 = 2023 - anoNascimento1;
+// let medicamentos1 = ["predsin", "omeprazol", "dipirona"]
+// let castrado1 = true
+
+// const nomeTutor2 = "João"
+// let telefoneTutor2 = "9101-1234"
+// const nomePet2 = "Pecos";
+// const especie2 = "gato";
+// const anoNascimento2 = 2002;
+// let idade2 = 2023 - anoNascimento2;
+// let medicamentos2 = []
+// let castrado2 = false
+
+// const nomeTutor3 = "Luiza"
+// let telefoneTutor3 = "9101-9087"
+// const nomePet3 = "Flor";
+// const especie3 = "gato";
+// const anoNascimento3 = 2010;
+// let idade3 = 2023 - anoNascimento3;
+// let medicamentos3 = ["omeprazol"]
+// let castrado3 = true
+
+
+// // Semana 1 - exercício 3
+// let mediaIdade = (idade1 + idade2 + idade3) / 3
+// console.log("Média de idade dos pets é:" + mediaIdade)
+
+// // Semana 1 - exercício 4
+// let verificaCastrados = castrado1 && castrado2 && castrado3;
+// console.log(verificaCastrados)
+
+// // Semana 1 - exercício 5
+
+
+// Semana 1 - exercício 6
+// console.log(`Nome do pet: ${nomePet1.toUpperCase()}
+// Nome do tutor: ${nomeTutor1}
+// telefone: ${telefoneTutor1}
+// idade do pet:${idade1}
+// medicamentos: ${medicamentos1}`)
+
+// console.log(`Nome do pet: ${nomePet2.toUpperCase()}
+// Nome do tutor: ${nomeTutor2}
+// telefone: ${telefoneTutor2}
+// idade do pet:${idade2}
+// medicamentos: ${medicamentos2}`)
+
+// console.log(`Nome do pet: ${nomePet3.toUpperCase()}
+// Nome do tutor: ${nomeTutor3}
+// telefone: ${telefoneTutor3}
+// idade do pet:${idade3}
+// medicamentos: ${medicamentos3}`)
 
 
 
-///RECEITA 2----------------------------------
-const titulo2 = "Mimosa"
-const ingredientes2 = ["1 parte de caldo de laranja natural coado", "1 parte de espumante"]
-const modoPreparo2 = [
-    "1. Antes de preparar o drinque, leve o suco de laranja e o espumante para a geladeira por pelo menos 30 minutos, ou até gelar. Se quiser, gele também uma taça para champanhe.",
-    "2. Incline levemente a taça e preencha com espumante até a metade - esta posição inclinada evita que a bebida espume em excesso. Complete com o suco de laranja e sirva a seguir.",
-]
-const tempoPreparoMinutos2 = 15
-let glutenFree2 = true
-let lactoseFree2 = true
-let vegetariono2 = true
+// SEMANA 2 - exercício 1
+
+const pet1 = {
+    nomeTutor: "Maria",
+    telefoneTutor: "9101-3456",
+    nomePet: "Pudim",
+    especie:"cachorro",
+    anoNascimento: 2012,
+    idade: 10,
+    medicamentos: ["predsin", "omeprazol", "dipirona"],
+    castrado: true
+}
+
+const pet2 = {
+    nomeTutor: "João",
+    telefoneTutor: "9101-1234",
+    nomePet: "Pecos",
+    especie:"gato",
+    anoNascimento: 2002,
+    idade: 21,
+    medicamentos: [],
+    castrado: true
+}
+
+const pet3 = {
+    nomeTutor: "Luiza",
+    telefoneTutor: "9101-9087",
+    nomePet: "Flor",
+    especie:"gato",
+    anoNascimento: 2022,
+    idade: 1,
+    medicamentos: ["predsin"],
+    castrado: false
+}
+// SEMANA 2 - exercício 2
+
+// // SEMANA 2 - exercício 4 e 5
+
+// const petsCastrados = []
+
+// for (const pet of clientes){
+//     if (pet.castrado === true){
+//         petsCastrados.push(pet)
+//     }else{
+//         // alert(`O pet ${pet.nomePet} ainda não foi castrado`)
+//     }
+// }
+// console.log(petsCastrados)
+
+// SEMANA 3 - exercício 1
+// let listaMedicamentos = pet1.medicamentos.join(", ")
 
 
-
-///RECEITA 3----------------------------------
-const titulo3 = "Ovos Beneditinos"
-const ingredientes3 = ["100 g de manteiga", "1 gema", "½ colher (sopa) de vinagre ", "sal e pimenta-do-reino moída na hora a gosto"]
-const modoPreparo3 = [
-    "1. Leve ao micro-ondas uma tigela com a manteiga para derreter. Reserve.",
-    "2. Numa panelinha, coloque cerca de dois dedos de água, leve ao fogo médio e desligue quando começar a ferver.",
-    "3. Junte a gema e o vinagre numa tigela média e mexa com um batedor de arame para incorporar. Adicione 1 colher (sopa) da água aquecida na mistura de gema e bata bem. Encaixe a tigela na panelinha com água fervente para fazer um banho-maria.",
-    "4. Bata vigorosamente até a mistura espumar. Junte a manteiga derretida aos poucos, batendo sempre. De vez em quando, coloque o dedo na tigela para checar a temperatura do molho (precisa estar quente). Se esfriar, ligue novamente o fogo, mas sem deixar a água do banho-maria ferver (para não correr o risco de cozinhar a gema e talhar o molho). ",
-    "5. Quando o molho encorpar, tire do banho-maria e tempere com sal e pimenta-do-reino a gosto. Reserve."
-]
-const tempoPreparoMinutos3 = 30
-let glutenFree3 = false
-let lactoseFree3 = false
-let vegetariono3 = false
-//-------------------------------------------
+// console.log(`Nome do pet: ${nomePet1.toUpperCase()}
+// Nome do tutor: ${nomeTutor1}
+// telefone: ${telefoneTutor1}
+// idade do pet:${idade1}
+// medicamentos: ${listaMedicamentos}`)
 
 
-// const mediaTempoMinutos = (tempoPreparoMinutos1 + tempoPreparoMinutos2 + tempoPreparoMinutos3)/3
-// console.log(`Media de tempo de preparo em minutos: ${mediaTempoMinutos} minutos`)
+// SEMANA 3 - exercício 2
 
-// const verificaGlutenFree = glutenFree1 && glutenFree2 && glutenFree3
-// console.log(`Todas receitas são sem glutem? ${verificaGlutenFree}`)
+// for (let cliente of clientes){
+//     console.log(cliente)
+// }
+// for(let cliente of clientes){
+//     for (let chave in cliente){
+//         console.log(`${chave}: ${cliente[chave]}`)
+//     }
+//     console.log("----------------------");
+// }
 
-console.log(`${titulo1.toUpperCase()} | Glutenfree: ${glutenFree1}  |  Lactosefree: ${lactoseFree1}  |   Vegetariano: ${vegetariono1} \n
-Ingredientes: ${ingredientes1}\n
-Modo de preparo: ${modoPreparo1}\n
-Tempo de preparo: ${tempoPreparoMinutos1} minutos\n
---------------------------------------------------`)
+// const myArray = [1, 2, 3, 4]
+// console.log(myArray.toString())
 
-console.log(`\n${titulo2.toUpperCase()} | Glutenfree: ${glutenFree2}  |  Lactosefree: ${lactoseFree2}  |   Vegetariano: ${vegetariono2} \n
-Ingredientes: ${ingredientes2}\n
-Modo de preparo: ${modoPreparo2}\n
-Tempo de preparo: ${tempoPreparoMinutos2} minutos\n
---------------------------------------------------`)
+// for (let client of clientes){
+//     for (let[key, value] of Object.entries(client)){
+//         console.log(`${key} : ${value}`)
+//     }
+//     console.log("*******----------------------");
+// }
 
-console.log(`\n${titulo3.toUpperCase()} | Glutenfree: ${glutenFree3}  |  Lactosefree: ${lactoseFree3}  |   Vegetariano: ${vegetariono3} \n
-Ingredientes: ${ingredientes3}\n
-Modo de preparo: ${modoPreparo3}\n
-Tempo de preparo: ${tempoPreparoMinutos3} minutos\n
---------------------------------------------------`)
+// console.log(clientes)
+const clientes = []
+// SEMANA 2 - exercício 3
+clientes.push(pet1, pet2, pet3)
+// console.log(clientes)
+
+let termo = "Flor"
+
+const arrayResultadoPesquisa= []
+const fazPesquisa = (arrayObjetos, termo) => {    
+    for (let objeto of arrayObjetos){
+        for (let[key, value] of Object.entries(objeto)){
+            if(value === termo){
+                arrayResultadoPesquisa.push(objeto)
+            }
+        }   
+    }   
+}
+
+const mostraResultadoPesquisa = (arrayResultadosPesquisa) =>{
+    for (let resultadoPesquisa of arrayResultadosPesquisa){
+            for (let[key, value] of Object.entries(resultadoPesquisa)){
+                console.log(`${key} : ${value}`)
+            }
+        console.log("*******----------------------");
+    }
+}
+
+const resultadoNaoEncontrado = () => {
+    if(arrayResultadoPesquisa.length === 0){
+        alert("bananinha")
+    }
+    console.log(arrayResultadoPesquisa)     
+}
+
+
+fazPesquisa(clientes, termo)
+mostraResultadoPesquisa(arrayResultadoPesquisa)
+resultadoNaoEncontrado()
