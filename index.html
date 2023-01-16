@@ -11,25 +11,21 @@
 </head>
 <body>
     <header>
-        <div id = "div1">
-
-        </div>
-
+        <nav>
+            <label for = "busca">Buscar</label>
+            <input type = "text" name="busca" id="busca">
+            <button onclick="excutaBusca()">Buscar</button>
+            <button onclick="rederizaTela(clientesOriginal)">Home</button>
+        </nav>
     </header>
-        <main>
-            
-            <article>
-                <div class= "cabecalho bordaTest">
-                    <label for = "busca">Faça sua busca</label>
-                    <input type = "text" name="busca" id="busca">
-                    
-                    <button>Buscar</button>
-                </div>
-                <div id="sections" class = "lista-conteudo">
-                    
-                </div>
-            </article>
-        </main>
+    <main >
+        <article>   
+            <div id="resultado-nao-encontrado">
+            </div>
+            <div id="sections1" class="lista-sections"> 
+            </div>
+        </article>
+    </main>
     <footer>
         <h2>Projeto intro to web</h2>
     </footer>
