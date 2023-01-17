@@ -27,7 +27,7 @@ const pet2 = {
 const pet3 = {
     nomeTutor: "Monica Andrades",
     telefoneTutor: "9101-9087",
-    nomePet: "Flor",
+    nomePet: "Naná",
     especie:"gato",
     anoNascimento: 2022,
     idade: 1,
@@ -51,7 +51,7 @@ const pet4 = {
 const pet5 = {
     nomeTutor: "Luiz Carlos Almeida",
     telefoneTutor: "9101-9087",
-    nomePet: "Roger",
+    nomePet: "Pitcho",
     especie:"gato",
     anoNascimento: 2022,
     idade: 1,
@@ -61,7 +61,7 @@ const pet5 = {
 }
 
 const pet6 = {
-    nomeTutor: "Maria Carmen Oliveira",
+    nomeTutor: "Tania Regina",
     telefoneTutor: "55-9101-3456",
     nomePet: "Pudim",
     especie:"cachorro",
@@ -82,56 +82,60 @@ const filtraClientes = (clientesOriginal, termoPesquisado) => {
             }
         } 
     }
-    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)  
+    avaliaResultadoPesquisa(arrayResultadoPesquisa)  
 }
 
-const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
-    // //limpeza da section original
-    const novaSection = document.getElementById("sections1");
-    novaSection.innerHTML = "";
-    // //limpeza resultado nao encontrado
-    const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
-    resultadoNaoEncontrado.innerHTML = "";
-    if(arrayResultadoPesquisa.length === 0){
+const avaliaResultadoPesquisa = (arrayResultadoPesquisa )=>{
+        //limpeza resultado nao encontrado, pois pode haver um "resultado não encontrado" anteriormente
+        const resultadoNaoEncontradoAntigo = document.getElementById("resultado-nao-encontrado");
+        resultadoNaoEncontradoAntigo.innerHTML = "";
+        //limpeza da section(cards), pois podem ter o resultado de uma pesquisa anterior
+        const sectionAntigas = document.getElementById("sections1");
+        sectionAntigas.innerHTML = "";
+    if(arrayResultadoPesquisa.length === 0){//não há resultado
         const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
         const textoResultadoNaoEncontrado = document.createElement("h1");
         textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
         resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
         resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
     }else {
-        rederizaTelas(arrayResultadoPesquisa)
+        rederizaTela(arrayResultadoPesquisa)//caso contrario, chama funçao renderizar tela
     }
 }
 
-const rederizaTelas = (array) =>{
-    for (let i in array){
-        const limpaH1 = document.getElementById("resultado-nao-encontrado");
-        limpaH1.innerHTML = "";
+const rederizaTela = (array) =>{
+        //limpeza resultado nao encontrado, pois pode haver um "resultado não encontrado" anteriormente
+        const resultadoNaoEncontradoAntigo = document.getElementById("resultado-nao-encontrado");
+        resultadoNaoEncontradoAntigo.innerHTML = "";
+        //limpeza da section(cards), pois podem ter o resultado de uma pesquisa anterior
+        const sectionAntigas = document.getElementById("sections1");
+        sectionAntigas.innerHTML = "";
+        
+    for (let i in array){//a ordem dos elementos importa na estrutura abaixo
         const novaSection = document.createElement("section");
 
         const novaImagem = document.createElement("img");
         novaImagem.setAttribute("src", array[i].imagem)
         novaSection.appendChild(novaImagem);
 
-        const divInfosClientes = document.createElement("div");
+        const divInfosClientes = document.createElement("div");//cria uma div que vai conter os dados dos clientes
         divInfosClientes.setAttribute("class", "divClientes");
         novaSection.appendChild(divInfosClientes);  
 
-        const nomePet = document.createElement("h3");
-        nomePet.innerHTML = array[i].nomePet;  // adiciona o parágrafo
+        const nomePet = document.createElement("h3");//cria o nome do Pet em destaque
+        nomePet.innerHTML = array[i].nomePet;  
         divInfosClientes.appendChild(nomePet);
 
-        const nomeTutor = document.createElement("p");
-        nomeTutor.innerHTML = "Nome do tutor:  " + array[i].nomeTutor;  // adiciona o parágrafo
+        const nomeTutor = document.createElement("p");//adiciona outras informações
+        nomeTutor.innerHTML = "Nome do tutor:  " + array[i].nomeTutor;
         divInfosClientes.appendChild(nomeTutor);
 
         const telefoneTutor = document.createElement("p");
-        telefoneTutor.innerHTML = "Telefone do tutor:  " + array[i].telefoneTutor ; // adiciona o parágrafo
+        telefoneTutor.innerHTML = "Telefone do tutor:  " + array[i].telefoneTutor ;
         divInfosClientes.appendChild(telefoneTutor);
 
         const divAtual = document.getElementById("sections1");
-        divAtual.insertAdjacentElement('afterbegin', novaSection);
-        
+        divAtual.insertAdjacentElement('afterbegin', novaSection);   
     }      
 }
 
@@ -147,7 +151,7 @@ const clientesOriginal = []
 clientesOriginal.push(pet1, pet2, pet3, pet4, pet5, pet6)
 
 //Programa começa aqui. Tela com todos objetos.
-rederizaTelas(clientesOriginal)
+rederizaTela(clientesOriginal)
 
 
 
