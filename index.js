@@ -74,15 +74,16 @@ const pet6 = {
 
 ///PESQUISA
 const filtraClientes = (clientesOriginal, termoPesquisado) => { 
-    const arrayResultadoPesquisa= []   
+    const arrayResultadoPesquisa= []  
     for (let cliente of clientesOriginal){
         for (let[key, value] of Object.entries(cliente)){
             if(value === termoPesquisado){
                 arrayResultadoPesquisa.push(cliente)
             }
-        }   
+        } 
     }
-    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)  
+    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)
+    console.log(arrayResultadoPesquisa)    
 }
 
 
@@ -109,14 +110,14 @@ const filtraClientes = (clientesOriginal, termoPesquisado) => {
 
 
 
-const criandoSections = (clientesFormatado) =>{
-    for (let i in clientesFormatado){
+const criandoSections = (array) =>{
+    for (let i in array){
         const limpaH1 = document.getElementById("resultado-nao-encontrado");
         limpaH1.innerHTML = "";
         const novaSection = document.createElement("section");
 
         const novaImagem = document.createElement("img");
-        novaImagem.setAttribute("src", clientesFormatado[i].imagem)
+        novaImagem.setAttribute("src", array[i].imagem)
         novaSection.appendChild(novaImagem);
 
         const divInfosClientes = document.createElement("div");
@@ -124,15 +125,15 @@ const criandoSections = (clientesFormatado) =>{
         novaSection.appendChild(divInfosClientes);  
 
         const nomePet = document.createElement("h3");
-        nomePet.innerHTML = clientesFormatado[i].nomePet;  // adiciona o parágrafo
+        nomePet.innerHTML = array[i].nomePet;  // adiciona o parágrafo
         divInfosClientes.appendChild(nomePet);
 
         const nomeTutor = document.createElement("p");
-        nomeTutor.innerHTML = "Nome do tutor:  " + clientesFormatado[i].nomeTutor;  // adiciona o parágrafo
+        nomeTutor.innerHTML = "Nome do tutor:  " + array[i].nomeTutor;  // adiciona o parágrafo
         divInfosClientes.appendChild(nomeTutor);
 
         const telefoneTutor = document.createElement("p");
-        telefoneTutor.innerHTML = "Telefone do tutor:  " + clientesFormatado[i].telefoneTutor ; // adiciona o parágrafo
+        telefoneTutor.innerHTML = "Telefone do tutor:  " + array[i].telefoneTutor ; // adiciona o parágrafo
         divInfosClientes.appendChild(telefoneTutor);
 
         // const telefoneTutor = document.createElement("p");
@@ -149,10 +150,10 @@ const criandoSections = (clientesFormatado) =>{
 }
 
 
-const rederizaTela = (array) =>{
-    const clientesFormatado = formataArrayClientes(array)
-    criandoSections(clientesFormatado)
-}
+// const rederizaTela = (array) =>{
+//     // const clientesFormatado = formataArrayClientes(array)
+//     criandoSections(array)
+// }
 
 
 const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
@@ -169,7 +170,7 @@ const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
         resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
         resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
     }else {
-        rederizaTela(arrayResultadoPesquisa)
+        criandoSections(arrayResultadoPesquisa)
     }
 }
 
