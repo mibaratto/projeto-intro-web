@@ -40,7 +40,7 @@ const pet4 = {
     nomeTutor: "Luiza Serafim",
     telefoneTutor: "9101-9087",
     nomePet: "Flor",
-    especie:"gato",
+    especie:"coelho",
     anoNascimento: 2022,
     idade: 1,
     medicamentos: ["predsin"],
@@ -52,7 +52,7 @@ const pet5 = {
     nomeTutor: "Luiz Carlos Almeida",
     telefoneTutor: "9101-9087",
     nomePet: "Roger",
-    especie:"coelho",
+    especie:"gato",
     anoNascimento: 2022,
     idade: 1,
     medicamentos: ["predsin"],
@@ -73,7 +73,7 @@ const pet6 = {
 }
 
 ///PESQUISA
-const pesquisarClientes = (clientesOriginal, termoPesquisado) => { 
+const filtraClientes = (clientesOriginal, termoPesquisado) => { 
     const arrayResultadoPesquisa= []   
     for (let cliente of clientesOriginal){
         for (let[key, value] of Object.entries(cliente)){
@@ -82,82 +82,109 @@ const pesquisarClientes = (clientesOriginal, termoPesquisado) => {
             }
         }   
     }
-    return arrayResultadoPesquisa   
+    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)  
 }
 
 
 //Criando elementos no DOM
-const formataArrayClientes = (clientesOriginal) =>{
-    const clientesFormatado = []
-    for (let cliente of clientesOriginal){
-        let conteudoCliente = {
-            imagem: "", 
-            texto: ""
-        }
-        for (let[key, value] of Object.entries(cliente)){
-            if(key === "imagem"){
-                conteudoCliente.imagem = value   
-            }
-            else{
-                conteudoCliente.texto += `${key}: ${value} <br>`
-            }
-        }
-        clientesFormatado.push(conteudoCliente)
-    }
-    return clientesFormatado
-}
+// const formataArrayClientes = (clientesOriginal) =>{
+//     const clientesFormatado = []
+//     for (let cliente of clientesOriginal){
+//         let conteudoCliente = {
+//             imagem: "", 
+//             texto: ""
+//         }
+//         for (let[key, value] of Object.entries(cliente)){
+//             if(key === "imagem"){
+//                 conteudoCliente.imagem = value   
+//             }
+//             else{
+//                 conteudoCliente.texto += `${key}: ${value} <br>`
+//             }
+//         }
+//         clientesFormatado.push(conteudoCliente)
+//     }
+//     return clientesFormatado
+// }
+
+
 
 const criandoSections = (clientesFormatado) =>{
     for (let i in clientesFormatado){
         const limpaH1 = document.getElementById("resultado-nao-encontrado");
         limpaH1.innerHTML = "";
         const novaSection = document.createElement("section");
+
         const novaImagem = document.createElement("img");
-        const novoParagrafo = document.createElement("p");
+        novaImagem.setAttribute("src", clientesFormatado[i].imagem)
         novaSection.appendChild(novaImagem);
-        novaSection.appendChild(novoParagrafo);
+
+        const divInfosClientes = document.createElement("div");
+        divInfosClientes.setAttribute("class", "divClientes");
+        novaSection.appendChild(divInfosClientes);  
+
+        const nomePet = document.createElement("h3");
+        nomePet.innerHTML = clientesFormatado[i].nomePet;  // adiciona o parágrafo
+        divInfosClientes.appendChild(nomePet);
+
+        const nomeTutor = document.createElement("p");
+        nomeTutor.innerHTML = "Nome do tutor:  " + clientesFormatado[i].nomeTutor;  // adiciona o parágrafo
+        divInfosClientes.appendChild(nomeTutor);
+
+        const telefoneTutor = document.createElement("p");
+        telefoneTutor.innerHTML = "Telefone do tutor:  " + clientesFormatado[i].telefoneTutor ; // adiciona o parágrafo
+        divInfosClientes.appendChild(telefoneTutor);
+
+        // const telefoneTutor = document.createElement("p");
+        // telefoneTutor.innerHTML = "Telefone do tutor:  " + clientesFormatado[i].telefoneTutor;  // adiciona o parágrafo
+        // divInfosClientes.appendChild(telefoneTutor);
+
+        // const novoParagrafo = document.createElement("p");
+        // novaSection.appendChild(novoParagrafo);
         const divAtual = document.getElementById("sections1");
         divAtual.insertAdjacentElement('afterbegin', novaSection);
-        novoParagrafo.innerHTML = clientesFormatado[i].texto  // adiciona o parágrafo
-        novaImagem.setAttribute("src", clientesFormatado[i].imagem)
+        // novoParagrafo.innerHTML = clientesFormatado[i].texto  // adiciona o parágrafo
+        
     }      
 }
 
 
-const rederizaTela = (clientesOriginal) =>{
-    const clientesFormatado = formataArrayClientes(clientesOriginal)
+const rederizaTela = (array) =>{
+    const clientesFormatado = formataArrayClientes(array)
     criandoSections(clientesFormatado)
 }
 
 
-const mostraResultadoPesquisa = (termoPesquisado)=>{
+const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
+    //limpeza da section original
     const novaSection = document.getElementById("sections1");
     novaSection.innerHTML = "";
+    //limpeza resultado nao encontrado
     const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
     resultadoNaoEncontrado.innerHTML = "";
-    const resultadoPesquisa = pesquisarClientes(clientesOriginal, termoPesquisado)
-    if(resultadoPesquisa.length === 0){
+    if(arrayResultadoPesquisa.length === 0){
         const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
         const textoResultadoNaoEncontrado = document.createElement("h1");
         textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
         resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
         resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
     }else {
-        rederizaTela(resultadoPesquisa)
+        rederizaTela(arrayResultadoPesquisa)
     }
-    console.log("fim")
 }
 
 const excutaBusca = ()=>{
-    let termo = document.getElementById("busca").value
-    mostraResultadoPesquisa(termo)
+    let termoPesquisado = document.getElementById("busca").value
+    filtraClientes(clientesOriginal, termoPesquisado)
 }
 
 const clientesOriginal = []
 clientesOriginal.push(pet1, pet2, pet3, pet4, pet5, pet6)
 
 //Programa começa aqui. Tela com todos objetos
-rederizaTela(clientesOriginal)
+// rederizaTela(clientesOriginal)
+
+criandoSections(clientesOriginal)
 
 //Se a pessoa escrever no campo de busca na UI e clicar no botao buscar =>
 //chama executaBusca (passando o termo digitado no teclado) 

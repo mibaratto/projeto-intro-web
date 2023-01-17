@@ -4,23 +4,26 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 header {
     display: flex;
-    height: 10vh;
     /* border: 3px solid black; */
     background-color: #e9cd87;
-;
-    width: 100vw;
-    height: 10vh;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 2vw;
+    align-items: center;
+}
 
+h1{
+    color: aliceblue;
 }
 
 nav {
-    justify-items: center;
-    border: 1px solid white;
-    height: 5vh;
-    padding: 1em;
+    display: flex;
+    /* border: 1px solid white; */
+    justify-content: space-between;
+    padding: 2vw;
+    gap: 2vh;
 }
 
 
@@ -29,9 +32,9 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 4vh;
-    /* border: 3px solid rgb(9, 255, 0); */
     margin-top: 4vh;
     margin-bottom: 4vh;
+    /* border: 1px solid red; */
 }
 
 section {
@@ -41,15 +44,23 @@ section {
     background-color: #e4b5b7;
     align-items: center;
     /* border: 1px solid red; */
-    height: auto;
     border-radius:15px;
-
+    min-width: 10vw;
+    max-width: 50vw;
 }
+
+.divClientes{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid rgb(26, 255, 0); */
+}
+
+
 p {
     /* border: 1px solid rgb(111, 0, 255); */
     grid-column: 2;
-    padding-left: 1em;
-    font-size: 1.33em;
+    font-size: 1.1rem;
+    max-width: 30vw;
 
 }
 
@@ -59,6 +70,8 @@ img {
     border-radius: 100%;
     border: 0.3em solid white;
     margin: 1em;
+    /* border: 1px solid red; */
+    min-width:150px;
 }
 
 footer {
@@ -70,4 +83,28 @@ footer {
 }
 
 
+@media screen and (min-device-width : 320px) and (max-device-width : 500px) {
+    section {
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 1fr 1fr;
+        background-color: #e4b5b7;
+        align-items: center;
+        border: 1px solid red;
+        border-radius:15px;
+        min-width: 10vw;
+        max-width: 50vw;
+    }
 
+    img {
+        width: 15vw;
+        grid-column: 1;
+        grid-row: 1;
+        border-radius: 100%;
+        border: 0.3em solid white;
+        margin: 0.4vw;
+        border: 1px solid red;
+        min-width:150px;
+    }
+
+}
