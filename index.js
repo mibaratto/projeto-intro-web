@@ -72,7 +72,7 @@ const pet6 = {
     imagem: "/imgs/dog-02.jpg"
 }
 
-///PESQUISA
+///Filtragem
 const filtraClientes = (clientesOriginal, termoPesquisado) => { 
     const arrayResultadoPesquisa= []  
     for (let cliente of clientesOriginal){
@@ -82,35 +82,28 @@ const filtraClientes = (clientesOriginal, termoPesquisado) => {
             }
         } 
     }
-    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)
-    console.log(arrayResultadoPesquisa)    
+    avaliaLimpaResultadoPesquisa(arrayResultadoPesquisa)  
 }
 
+const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
+    // //limpeza da section original
+    const novaSection = document.getElementById("sections1");
+    novaSection.innerHTML = "";
+    // //limpeza resultado nao encontrado
+    const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
+    resultadoNaoEncontrado.innerHTML = "";
+    if(arrayResultadoPesquisa.length === 0){
+        const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
+        const textoResultadoNaoEncontrado = document.createElement("h1");
+        textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
+        resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
+        resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
+    }else {
+        rederizaTelas(arrayResultadoPesquisa)
+    }
+}
 
-//Criando elementos no DOM
-// const formataArrayClientes = (clientesOriginal) =>{
-//     const clientesFormatado = []
-//     for (let cliente of clientesOriginal){
-//         let conteudoCliente = {
-//             imagem: "", 
-//             texto: ""
-//         }
-//         for (let[key, value] of Object.entries(cliente)){
-//             if(key === "imagem"){
-//                 conteudoCliente.imagem = value   
-//             }
-//             else{
-//                 conteudoCliente.texto += `${key}: ${value} <br>`
-//             }
-//         }
-//         clientesFormatado.push(conteudoCliente)
-//     }
-//     return clientesFormatado
-// }
-
-
-
-const criandoSections = (array) =>{
+const rederizaTelas = (array) =>{
     for (let i in array){
         const limpaH1 = document.getElementById("resultado-nao-encontrado");
         limpaH1.innerHTML = "";
@@ -136,62 +129,27 @@ const criandoSections = (array) =>{
         telefoneTutor.innerHTML = "Telefone do tutor:  " + array[i].telefoneTutor ; // adiciona o parágrafo
         divInfosClientes.appendChild(telefoneTutor);
 
-        // const telefoneTutor = document.createElement("p");
-        // telefoneTutor.innerHTML = "Telefone do tutor:  " + clientesFormatado[i].telefoneTutor;  // adiciona o parágrafo
-        // divInfosClientes.appendChild(telefoneTutor);
-
-        // const novoParagrafo = document.createElement("p");
-        // novaSection.appendChild(novoParagrafo);
         const divAtual = document.getElementById("sections1");
         divAtual.insertAdjacentElement('afterbegin', novaSection);
-        // novoParagrafo.innerHTML = clientesFormatado[i].texto  // adiciona o parágrafo
         
     }      
 }
 
-
-// const rederizaTela = (array) =>{
-//     // const clientesFormatado = formataArrayClientes(array)
-//     criandoSections(array)
-// }
-
-
-const avaliaLimpaResultadoPesquisa = (arrayResultadoPesquisa )=>{
-    //limpeza da section original
-    const novaSection = document.getElementById("sections1");
-    novaSection.innerHTML = "";
-    //limpeza resultado nao encontrado
-    const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
-    resultadoNaoEncontrado.innerHTML = "";
-    if(arrayResultadoPesquisa.length === 0){
-        const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
-        const textoResultadoNaoEncontrado = document.createElement("h1");
-        textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
-        resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
-        resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
-    }else {
-        criandoSections(arrayResultadoPesquisa)
-    }
-}
-
+//Execução da busca e chamada de filtragem
 const excutaBusca = ()=>{
     let termoPesquisado = document.getElementById("busca").value
     filtraClientes(clientesOriginal, termoPesquisado)
 }
 
+
+//Push dos Obj no array clientesOriginal
 const clientesOriginal = []
 clientesOriginal.push(pet1, pet2, pet3, pet4, pet5, pet6)
 
-//Programa começa aqui. Tela com todos objetos
-// rederizaTela(clientesOriginal)
+//Programa começa aqui. Tela com todos objetos.
+rederizaTelas(clientesOriginal)
 
-criandoSections(clientesOriginal)
 
-//Se a pessoa escrever no campo de busca na UI e clicar no botao buscar =>
-//chama executaBusca (passando o termo digitado no teclado) 
-//executaBusca chama mostraresultado da pesquisa 
-//mostra resultado avalia SE: tem o termo > chama renderizaTela(resultadoPesquisa)
-//SE NAO aparesenta mensagem "nao encontrado"
 
 
 
