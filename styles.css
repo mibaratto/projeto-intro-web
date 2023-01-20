@@ -2,24 +2,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 header {
     display: flex;
     /* border: 3px solid black; */
     background-color: #bee7f9;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items:center
 }
 #imgLogo {
-    width: 12vw;
+    width: 16vw;
 }
 
 #homeButton {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid red; */
     background-color: transparent;
     cursor: pointer;
     font-size: 1em;
@@ -27,6 +27,7 @@ header {
     border: none;
     color: #00006f;
     padding: 2vw;
+   margin-left: 2vw;
 
 }
 
@@ -34,29 +35,39 @@ nav {
     display: flex;
     /* border: 1px solid white; */
     flex-grow: 2;
-    justify-content: center;
-    gap: 2vw;
+    justify-content:end;
+    gap: 1vw;
+    align-items: center;
+    margin-right:4vw ;
 }
 input{
     width: 300px;
     height: 40px;
     border-radius:25px;
     border: none;
+    padding: 1rem;
 }
+#botaoBusca{
+    width: 80px;
+    height: 40px;
+    border-radius:25px;
+    border: none;
+    background-color: #0ccbff;
+    transition-duration: 0.4s;
+    
+}
+#botaoBusca:hover{
+    background-color:#19b3de;
+    
+}
+
 #iconeBusca{
     width: 32px;
 }
 
-#campoBusca {
-    background-color:#0ccbff;
-    padding: 2px;
-    border-radius: 2rem;
-}
-
-
 
 #resultado-nao-encontrado{
-    color: coral;
+    color: #d4660d;
     text-align: center;
     margin: 2rem;
 }
@@ -70,7 +81,6 @@ input{
     gap: 4vh;
     margin-top: 8vh;
     margin-bottom: 15vh;
-    /* border: 1px solid red; */
 }
 
 section {
@@ -80,9 +90,9 @@ section {
     background-color: #0ccbff;
     align-items: center;
     /* border: 1px solid red; */
-    border-radius:15px;
-    min-width: 10vw;
-    max-width: 50vw;
+    border-radius:32px;
+    min-width: 20vw;
+    max-width: 40vw;
 }
 
 .divClientes{
@@ -90,6 +100,7 @@ section {
     flex-direction: column;
     color: #00006f;
     /* border: 1px solid rgb(26, 255, 0); */
+    margin-left: 2vw;
 }
 
 
@@ -103,11 +114,11 @@ p {
 }
 
 .imgCards {
-    width: 15vw;
+    width: 12vw;
     grid-column: 1;
     border-radius: 100%;
     border: 0.3em solid white;
-    margin: 1em;
+    margin: 2em;
     /* border: 1px solid red; */
     min-width:150px;
 }

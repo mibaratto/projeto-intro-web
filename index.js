@@ -5,7 +5,7 @@ const pet1 = {
     nomePet: "Mingus",
     especie:"cachorro",
     anoNascimento: 2012,
-    idade: 10,
+    idade: 8,
     medicamentos: ["predsin", "omeprazol", "dipirona"],
     vacinado: true,
     imagem: "/imgs/dog-01.jpg"
@@ -30,7 +30,7 @@ const pet3 = {
     nomePet: "Naná",
     especie:"gato",
     anoNascimento: 2022,
-    idade: 1,
+    idade: 3,
     medicamentos: ["predsin"],
     vacinado: true,
     imagem: "/imgs/cat-03.jpg"
@@ -54,7 +54,7 @@ const pet5 = {
     nomePet: "Pitcho",
     especie:"gato",
     anoNascimento: 2022,
-    idade: 1,
+    idade: 4,
     medicamentos: ["predsin"],
     vacinado: false,
     imagem: "/imgs/cat-02.jpg"
@@ -66,7 +66,7 @@ const pet6 = {
     nomePet: "Pudim",
     especie:"cachorro",
     anoNascimento: 2012,
-    idade: 10,
+    idade: 2,
     medicamentos: ["predsin", "omeprazol", "dipirona"],
     vacinado: true,
     imagem: "/imgs/dog-02.jpg"
@@ -99,7 +99,7 @@ const avaliaResultadoPesquisa = (arrayResultadoPesquisa )=>{
     if(arrayResultadoPesquisa.length === 0){//não há resultado
         const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
         const textoResultadoNaoEncontrado = document.createElement("h2");
-        textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
+        textoResultadoNaoEncontrado.textContent = `Resultado não encontrado. \n Por favor, digite um termo válido.`;
         resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
         resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
     }else {
@@ -127,16 +127,24 @@ const rederizaTela = (array) =>{
         divInfosClientes.setAttribute("class", "divClientes");
         novaSection.appendChild(divInfosClientes);  
 
-        const nomePet = document.createElement("h3");//cria o nome do Pet em destaque
-        nomePet.innerHTML = array[i].nomePet;  
+        const nomePet = document.createElement("h2");//cria o nome do Pet em destaque
+        nomePet.innerHTML = `${array[i].nomePet}`;  
         divInfosClientes.appendChild(nomePet);
 
+        const especie = document.createElement("p");//adiciona outras informações
+        especie.innerHTML = `${array[i].especie}`;
+        divInfosClientes.appendChild(especie)
+
+        const idade = document.createElement("p");//adiciona outras informações
+        idade.innerHTML = `Idade: ${array[i].idade} anos`;
+        divInfosClientes.appendChild(idade);
+
         const nomeTutor = document.createElement("p");//adiciona outras informações
-        nomeTutor.innerHTML = "Tutor:  " + array[i].nomeTutor;
+        nomeTutor.innerHTML = `Tutor: ${array[i].nomeTutor}`;
         divInfosClientes.appendChild(nomeTutor);
 
         const telefoneTutor = document.createElement("p");
-        telefoneTutor.innerHTML = "Telefone:  " + array[i].telefone ;
+        telefoneTutor.innerHTML = `Telefone:  ${array[i].telefone}` ;
         divInfosClientes.appendChild(telefoneTutor);
 
         const divAtual = document.getElementById("sections1");
