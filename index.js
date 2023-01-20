@@ -1,89 +1,93 @@
 
 const pet1 = {
     nomeTutor: "Maria Carmen Oliveira",
-    telefoneTutor: "55-9101-3456",
-    nomePet: "Pudim",
+    telefone: "55-9101-3456",
+    nomePet: "Mingus",
     especie:"cachorro",
     anoNascimento: 2012,
     idade: 10,
     medicamentos: ["predsin", "omeprazol", "dipirona"],
-    castrado: true,
+    vacinado: true,
     imagem: "/imgs/dog-01.jpg"
 }
 
 
 const pet2 = {
     nomeTutor: "João Cristino da Silva",
-    telefoneTutor: "9101-1234",
+    telefone: "9101-1234",
     nomePet: "Pecos",
     especie:"gato",
     anoNascimento: 2002,
     idade: 21,
     medicamentos: [],
-    castrado: true,
+    vacinado: true,
     imagem: "/imgs/cat-01.jpg"
 }
 
 const pet3 = {
     nomeTutor: "Monica Andrades",
-    telefoneTutor: "9101-9087",
+    telefone: "9101-9087",
     nomePet: "Naná",
     especie:"gato",
     anoNascimento: 2022,
     idade: 1,
     medicamentos: ["predsin"],
-    castrado: false,
+    vacinado: true,
     imagem: "/imgs/cat-03.jpg"
 }
 
 const pet4 = {
     nomeTutor: "Luiza Serafim",
-    telefoneTutor: "9101-9087",
+    telefone: "9101-9087",
     nomePet: "Flor",
     especie:"coelho",
     anoNascimento: 2022,
     idade: 1,
     medicamentos: ["predsin"],
-    castrado: false,
+    vacinado: false,
     imagem: "/imgs/rabit-01.jpg"
 }
 
 const pet5 = {
     nomeTutor: "Luiz Carlos Almeida",
-    telefoneTutor: "9101-9087",
+    telefone: "9101-9087",
     nomePet: "Pitcho",
     especie:"gato",
     anoNascimento: 2022,
     idade: 1,
     medicamentos: ["predsin"],
-    castrado: false,
+    vacinado: false,
     imagem: "/imgs/cat-02.jpg"
 }
 
 const pet6 = {
     nomeTutor: "Tania Regina",
-    telefoneTutor: "55-9101-3456",
+    telefone: "55-9101-3456",
     nomePet: "Pudim",
     especie:"cachorro",
     anoNascimento: 2012,
     idade: 10,
     medicamentos: ["predsin", "omeprazol", "dipirona"],
-    castrado: true,
+    vacinado: true,
     imagem: "/imgs/dog-02.jpg"
 }
 
-///Filtragem
+//Filtragem
 const filtraClientes = (clientesOriginal, termoPesquisado) => { 
-    const arrayResultadoPesquisa= []  
+    const arrayResultadoPesquisa = []  
     for (let cliente of clientesOriginal){
-        for (let[key, value] of Object.entries(cliente)){
-            if(value === termoPesquisado){
-                arrayResultadoPesquisa.push(cliente)
+        for (const key in cliente){
+            const value = cliente[key]
+            if(value.toString().toLowerCase().includes(termoPesquisado.toLowerCase())){ 
+                if(!arrayResultadoPesquisa.includes(cliente)) { // se nao estiver no array, colocar
+                    arrayResultadoPesquisa.push(cliente)
+                }
             }
         } 
     }
-    avaliaResultadoPesquisa(arrayResultadoPesquisa)  
+    avaliaResultadoPesquisa(arrayResultadoPesquisa)
 }
+
 
 const avaliaResultadoPesquisa = (arrayResultadoPesquisa )=>{
         //limpeza resultado nao encontrado, pois pode haver um "resultado não encontrado" anteriormente
@@ -94,7 +98,7 @@ const avaliaResultadoPesquisa = (arrayResultadoPesquisa )=>{
         sectionAntigas.innerHTML = "";
     if(arrayResultadoPesquisa.length === 0){//não há resultado
         const resultadoNaoEncontrado = document.getElementById("resultado-nao-encontrado");
-        const textoResultadoNaoEncontrado = document.createElement("h1");
+        const textoResultadoNaoEncontrado = document.createElement("h2");
         textoResultadoNaoEncontrado.textContent = "Resultado não encontrado";
         resultadoNaoEncontrado.appendChild(textoResultadoNaoEncontrado);
         resultadoNaoEncontrado.insertAdjacentElement('afterbegin', textoResultadoNaoEncontrado)
@@ -116,6 +120,7 @@ const rederizaTela = (array) =>{
 
         const novaImagem = document.createElement("img");
         novaImagem.setAttribute("src", array[i].imagem)
+        novaImagem.setAttribute("class", "imgCards")
         novaSection.appendChild(novaImagem);
 
         const divInfosClientes = document.createElement("div");//cria uma div que vai conter os dados dos clientes
@@ -127,11 +132,11 @@ const rederizaTela = (array) =>{
         divInfosClientes.appendChild(nomePet);
 
         const nomeTutor = document.createElement("p");//adiciona outras informações
-        nomeTutor.innerHTML = "Nome do tutor:  " + array[i].nomeTutor;
+        nomeTutor.innerHTML = "Tutor:  " + array[i].nomeTutor;
         divInfosClientes.appendChild(nomeTutor);
 
         const telefoneTutor = document.createElement("p");
-        telefoneTutor.innerHTML = "Telefone do tutor:  " + array[i].telefoneTutor ;
+        telefoneTutor.innerHTML = "Telefone:  " + array[i].telefone ;
         divInfosClientes.appendChild(telefoneTutor);
 
         const divAtual = document.getElementById("sections1");
@@ -141,9 +146,14 @@ const rederizaTela = (array) =>{
 
 //Execução da busca e chamada de filtragem
 const excutaBusca = ()=>{
-    let termoPesquisado = document.getElementById("busca").value
-    filtraClientes(clientesOriginal, termoPesquisado)
-}
+    let termoPesquisado = (document.getElementById("busca").value)
+    
+    if(termoPesquisado === ""){
+        alert("Campo em branco")
+    }else {
+        filtraClientes(clientesOriginal, (termoPesquisado))
+    }
+}  
 
 
 //Push dos Obj no array clientesOriginal
@@ -154,6 +164,37 @@ clientesOriginal.push(pet1, pet2, pet3, pet4, pet5, pet6)
 rederizaTela(clientesOriginal)
 
 
+const relatorio = (clientesOriginal) =>{
+    console.log("RELATÓRIO CLIENTES \n \n")
+    for (let cliente of clientesOriginal) {
+        for(let [key, value] of Object.entries(cliente))
+            console.log(`${key.charAt(0).toLocaleUpperCase() + key.slice(1)}: ${value}`)
+            console.log("-----------------\n \n")
+    }
+}
+relatorio(clientesOriginal)
 
 
+const mediaIdade = (clientesOriginal) => {
+    let somaIdades = 0
+    for (let cliente of clientesOriginal) {
+            somaIdades += cliente.idade
+    }
+    let mediaIdade = somaIdades / clientesOriginal.length
+    console.log(`Média da Idade dos pacientes: ${mediaIdade.toFixed(1)}`)
+}
+mediaIdade(clientesOriginal)
+
+const verificaPetsTodosVacinados = (clientesOriginal) =>{
+    let petVacinado = true
+    for(let cliente of clientesOriginal){
+        if(cliente.vacinado === false){
+            petVacinado = false
+            console.log(`Nem todos pets estão vacinados: ${petVacinado}`)
+            return
+        }
+    }
+    console.log(`Todos pets estão vacinados: ${petVacinado}`)
+}
+verificaPetsTodosVacinados(clientesOriginal)
 
