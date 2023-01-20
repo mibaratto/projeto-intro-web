@@ -7,19 +7,23 @@
     <title>Clínica Veterinária</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Flex:opsz,wght@8..144,200;8..144,400;8..144,500&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <header>
         <div>
             <button onclick="rederizaTela(clientesOriginal)" id="homeButton">
-            Clínica Veterinária
+                <img src="./imgs/logo.png" id="imgLogo"/>
+                <h1>Clínica Veterinária</h1>
         </button>
         </div>
         <nav>
-            <label for = "busca">Buscar</label>
-            <input type = "text" name="busca" id="busca">
-            <button onclick="excutaBusca()">Buscar</button>
+            <label for = "busca"></label>
+            <input type = "text" name="busca" id="busca" autofocus = "autofocus" placeholder=" pesquise por nome, espécie, tutor">
+            <button onclick="excutaBusca()" id="botaoBusca">Buscar</button>
             
         </nav>
     </header>
