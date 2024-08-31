@@ -1,6 +1,6 @@
 # Web Development Introduction Project
 
-This is the introductory project to the fundamentals of Web development. The goal is to build a stylized page, with **list** and **search** using DOM manipulation, Javascript, HTHM/CSS
+This is the introductory project to the fundamentals of Web development. The goal is to build a stylized page, with **list** and **search** using DOM manipulation, Javascript, HTHM and CSS.
 
 # Main concepts for this project
 
