@@ -1,39 +1,38 @@
-# Projeto de Introdução ao desenvolvimento web
+# Web Development Introduction Project
 
-Esse é o projeto de introdução aos fundamentos do desenvolvimento Web. Aqui, vamos praticar a estrutura do que faremos pelo curso todo. O objetivo é construir uma página estilizada, e com **lista** e **busca** utilizando manipulação de DOM, praticando o conteúdo do módulo com JS:
+This is the introductory project to the fundamentals of Web development. The goal is to build a stylized page, with **list** and **search** using DOM manipulation, Javascript, HTHM/CSS
 
-- Variáveis
-- Operadores
+# Main concepts for this project
+
+- Variables
+- Operators
 - Strings
 - Arrays
-- Objetos
-- Condicionais
-- Laços
-- Funções
-- Funções de Array
-- HTML e CSS
-- Flex e Grid
-- DOM e responsividade
+- Objects
+- Conditionals
+- Loops
+- Functions
+- Array Functions
+- HTML and CSS
+- Flex and Grid
+- DOM and responsiveness
 
-## Enunciado
 
-A página consiste em um HTML, ligado a um ou mais arquivos CSS, e um ou mais arquivos JS (recomendamos apenas um de cada, no entanto). O objetivo é conseguir criar uma página estática, depois estilizada, e por fim, dinâmica. A página vai catalogar (ou listar) itens que você escolher, e deve possuir um sistema simples de busca, que recebe um texto, e procura por nomes/títulos que correspondam a este texto.
+### List of requirements
 
-### Lista de requisitos
+- [ ] Listing screen with title
+- [ ] Header on the page
+- [ ] Main area with search bar and button
+- [ ] Space for list of items
+- [ ] at least three listed items
+- [ ] Items listed **using DOM manipulation**
+- [ ] Footer on the page with identification
+- [ ] Search bar with alert if you try to search with a blank field
+- [ ] Clicking the button performs a search among the items
+- [ ] Report printed in the console with information about each item
+- [ ] Name/title of the items in capital letters
+- [ ] Numeric average calculated and printed in the console
+- [ ] Checking for true boolean values ​​printed in the console
+- [ ] Use of Grid or Flex for styling
 
-- [ ]  Tela de listagem com título
-- [ ]  Cabeçalho na página
-- [ ]  Área principal com barra de pesquisa e botão
-- [ ]  Espaço para lista dos itens
-- [ ]  ao menos três itens listados
-- [ ]  Itens listados **utilizando manipulação do DOM**
-- [ ]  Rodapé na página com identificação
-- [ ]  Barra de pesquisa com alerta se tentar pesquisar com campo em branco
-- [ ]  Clique do botão executa busca entre os itens
-- [ ]  Relatório impresso no console com as informações de cada item
-- [ ]  Nome/título dos itens em letras maiúsculas
-- [ ]  Média numérica calculada e impressa no console
-- [ ]  Verificação de valores booleanos true impressa no console
-- [ ]  Utilização de Grid ou Flex para estilizar
-- [ ]  Atenção ao padrão de estilização enviado
 
